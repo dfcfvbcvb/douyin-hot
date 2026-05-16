@@ -50,8 +50,8 @@ def fetch_douyin_hot():
 
 def send_feishu_message(token, title, items):
     lines = [f"{title}\n"]
-    for i, (topic, heat) in enumerate(items[:20], 1):
-        lines.append(f"{i}. {topic}")
+    for i, (topic, heat) in enumerate(items[:30], 1):
+        lines.append(f"{i}. {topic}  {heat}")
     text = "\n".join(lines)
 
     content = json.dumps({"text": text})
