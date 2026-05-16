@@ -50,8 +50,8 @@ def fetch_douyin_hot():
 
 def send_feishu_message(token, title, items):
     lines = [f"{title}\n"]
-    for i, (topic, heat) in enumerate(items[:30], 1):
-        lines.append(f"{i:2d}. {topic}  [{heat}]")
+    for i, (topic, heat) in enumerate(items[:20], 1):
+        lines.append(f"{i}. {topic}")
     text = "\n".join(lines)
 
     content = json.dumps({"text": text})
@@ -82,8 +82,8 @@ def main():
 
     token = get_tenant_token()
     items = fetch_douyin_hot()
-    today = datetime.date.today().strftime("%Y-%m-%d")
-    title = f"📱 抖音热搜日报  {today}"
+    today = datetime.date.today().strftime("%m/%d")
+    title = f"今日抖音热搜  {today}"
     send_feishu_message(token, title, items)
 
 
