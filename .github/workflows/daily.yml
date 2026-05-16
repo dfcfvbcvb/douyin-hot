@@ -2,8 +2,11 @@ name: Douyin Hot Daily
 
 on:
   schedule:
+    - cron: "30 21 * * *"
     - cron: "0 22 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   send-hot:
