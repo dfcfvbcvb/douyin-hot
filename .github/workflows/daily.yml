@@ -2,9 +2,7 @@ name: Douyin Hot Daily
 
 on:
   schedule:
-    - cron: "30 21 * * *"
-    - cron: "0 22 * * *"
-    - cron: "30 22 * * *"
+    - cron: "0 4 * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -17,6 +15,7 @@ jobs:
       - name: Run douyin hot script
         run: python douyin_hot.py
         env:
+          TZ: Asia/Shanghai
           FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
           FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
           FEISHU_ADMIN_OPEN_ID: ${{ secrets.FEISHU_ADMIN_OPEN_ID }}
