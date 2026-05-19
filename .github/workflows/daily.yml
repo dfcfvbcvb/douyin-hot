@@ -3,6 +3,7 @@ name: Douyin Hot Daily
 on:
   schedule:
     - cron: "0 4 * * *"
+    - cron: "0 16 * * *"
   workflow_dispatch:
   push:
     branches: [main]
