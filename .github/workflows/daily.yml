@@ -1,0 +1,19 @@
+name: Douyin Hot Daily
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  send-hot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run douyin hot script
+        run: python douyin_hot.py
+        env:
+          TZ: Asia/Shanghai
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_ADMIN_OPEN_ID: ${{ secrets.FEISHU_ADMIN_OPEN_ID }}
